@@ -9,10 +9,21 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+//sockets
+import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
+import { environment } from '../environments/environment';
+
+const config: SocketIoConfig = {url: environment.wsUrl, options:{}}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    SocketIoModule.forRoot(config)
+  ],
   providers: [
     StatusBar,
     SplashScreen,
