@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,7 +9,7 @@ import { WebsocketService } from './services/websocket.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -24,8 +24,5 @@ export class AppComponent implements OnInit{
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  ngOnInit(){
   }
 }

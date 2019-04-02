@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -13,16 +14,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 import { environment } from '../environments/environment';
 
+import { ComponentsModule } from './components/components.module';
+
 const config: SocketIoConfig = {url: environment.wsUrl, options:{}}
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    ComponentsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,

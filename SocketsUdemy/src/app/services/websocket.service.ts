@@ -25,4 +25,15 @@ export class WebsocketService {
       this.socketStatus = false;
     });
   }
+
+  emit(evento:string,  payload?:any, callback?:Function){
+    
+    console.log('Emitiendo', evento);
+    //emit('Evento', payload, callback)
+    this.socket.emit(evento, payload, callback);
+  }
+
+  listen(evento:string){
+    return this.socket.fromEvent( evento );
+  }
 }
