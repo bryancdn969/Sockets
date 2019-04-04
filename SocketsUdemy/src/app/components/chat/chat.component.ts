@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { Subscription } from 'rxjs';
-import { clearResolutionOfComponentResourcesQueue } from '@angular/core/src/metadata/resource_loading';
+import {WebsocketService} from '../../services/websocket.service';
 
 @Component({
   selector: 'app-chat',
@@ -17,31 +17,31 @@ export class ChatComponent implements OnInit, OnDestroy {
   mensajes: any[] = [];
 
   constructor(
-    public chatService: ChatService
+    public chatService: ChatService,
+    public wsService: WebsocketService
   ) { }
 
   ngOnInit() {
 
     this.elemento = document.getElementById('chat-mensajes');
 
-    this.mensajesSubscription = this.chatService.getMessages().subscribe(msg =>{
-      
+    this.mensajesSubscription = this.chatService.getMessages().subscribe(msg => {
       this.mensajes.push(msg);
 
-      setTimeout(()=>{
+      setTimeout(() => {
         this.elemento.scrollTop = this.elemento.scrollHeight;
       },50);
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.mensajesSubscription.unsubscribe();
   }
 
 
-  enviar(){
+  enviar() {
 
-    if(this.texto.trim().length === 0){
+    if ( this.texto.trim().length === 0 ) {
       return;
     }
 

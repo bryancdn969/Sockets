@@ -10,11 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { MensajesPageModule} from './pages/mensajes/mensajes.module';
+import { LoginPageModule } from './pages/login/login.module';
+
 //sockets
 import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 import { environment } from '../environments/environment';
 
 import { ComponentsModule } from './components/components.module';
+
 
 const config: SocketIoConfig = {url: environment.wsUrl, options:{}}
 
@@ -29,7 +33,9 @@ const config: SocketIoConfig = {url: environment.wsUrl, options:{}}
     AppRoutingModule,
     SocketIoModule.forRoot(config),
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    MensajesPageModule,
+    LoginPageModule
   ],
   providers: [
     StatusBar,

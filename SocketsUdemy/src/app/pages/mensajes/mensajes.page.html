@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Usuario: 
+  <small>{{wsService.usuario.nombre}}</small>
+  </h1>
+    <div class="row">
+        <div class="col-6">
+          <app-lista-usuarios></app-lista-usuarios>
+        </div>
+        <div class="col-6">
+          <app-chat></app-chat>
+        </div>
+      </div>
+      
+  <app-footer></app-footer>
+</ion-content>

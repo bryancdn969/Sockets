@@ -4,15 +4,18 @@ import { FooterComponent } from './footer/footer.component';
 import { IonicModule } from '@ionic/angular';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from '@angular/forms';
+import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    ChatComponent
+    ChatComponent,
+    ListaUsuariosComponent
   ],
   exports: [
     FooterComponent,
-    ChatComponent
+    ChatComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     CommonModule,
